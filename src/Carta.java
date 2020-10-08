@@ -1,8 +1,11 @@
 
 public class Carta {
-
+	
+	private float altura;
+	
+	
 	public Carta() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }
