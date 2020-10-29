@@ -1,8 +1,18 @@
+import java.util.ArrayList;
 
 public class Jugador {
-
-	public Jugador() {
-		// TODO Auto-generated constructor stub
+	
+	private int numjugador;
+	private Mazo cartas;
+	
+	
+	public Jugador(int numjugador) {
+		this.numjugador=numjugador;
+		this.cartas = new Mazo();
 	}
-
+	
+	public AtributoDinamico eleguirAtributo() {
+		return cartas.darCarta().getAtributo();
+	}
+	
 }

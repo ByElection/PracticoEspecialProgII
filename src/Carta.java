@@ -1,69 +1,64 @@
+import java.util.ArrayList;
 
 public class Carta {
 	
 	private String nombre;
-	private int altura;
-	private int peso;
-	private int fuerza;
-	private int peleas_gandas;
-	private int velocidad;
+	private ArrayList<AtributoDinamico> atributos;
 	
-	public Carta(String nombre, int altura, int peso, int fuerza, int peleas_gandas, int velocidad) {
+	public Carta(String nombre) {
 		this.nombre = nombre;
-		this.altura = altura;
-		this.peso = peso;
-		this.fuerza = fuerza;
-		this.peleas_gandas = peleas_gandas;
-		this.velocidad = velocidad;
+		this.atributos = new ArrayList<>();
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getAltura() {
-		return altura;
-	}
-
-	public void setAltura(int altura) {
-		this.altura = altura;
-	}
-
-	public int getPeso() {
-		return peso;
-	}
-
-	public void setPeso(int peso) {
-		this.peso = peso;
-	}
-
-	public int getFuerza() {
-		return fuerza;
-	}
-
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
-	}
-
-	public int getPeleas_gandas() {
-		return peleas_gandas;
-	}
-
-	public void setPeleas_gandas(int peleas_gandas) {
-		this.peleas_gandas = peleas_gandas;
-	}
-
-	public int getVelocidad() {
-		return velocidad;
-	}
-
-	public void setVelocidad(int velocidad) {
-		this.velocidad = velocidad;
+	
+	public void addAtributo(String nombre, int valor) {
+		if (!tieneAtributo(nombre))
+			this.atributos.add(new AtributoDinamico(nombre,valor));
 	}
 	
+	public AtributoDinamico getAtributo(String nombre) {
+		for(int i=0; i<atributos.size(); i++) {
+			if (atributos.get(i).getNombreAtributo().equals(nombre))
+				return atributos.get(i);
+		}
+		return null;
+	}
 	
+	public boolean tieneAtributo(String nombre) {
+		AtributoDinamico atributo = this.getAtributo(nombre);
+		return (atributo != null);
+	}
+	
+	public boolean tieneAtributo(AtributoDinamico atributo) {
+		return atributos.contains(atributo);
+	}
+	
+	public int cantAtributos() {
+		return this.atributos.size();
+	}
+	
+	public boolean mismoTipo(Carta c) {
+		for(int i=0; i < atributos.size(); i++) {
+			if (!c.tieneAtributo(atributos.get(i))) {
+				return false;
+			}
+		}
+		if (this.cantAtributos()==c.cantAtributos()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public AtributoDinamico getAtributo(){
+		int random = (int) Math.random()*atributos.size();
+		return atributos.get(random);
+	}
 }
+
+	
+	

@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Mazo {
 
 	private ArrayList<Carta> cartas;
 	
-	public Mazo(ArrayList<Carta> cartas) {
-		this.cartas = cartas;
+	public Mazo() {
+		this.cartas = new ArrayList<>();
 	}
 
 	public void removeCarta() {
@@ -13,11 +14,28 @@ public class Mazo {
 	}
 	
 	public void addCarta(Carta c) {
-		cartas.add(c);
+		if(cartas.isEmpty()) {
+			cartas.add(c);
+		}
+		else {
+			if (chequearCarta(c)) {
+				cartas.add(c);
+			}
+		}
 	}
 	
 	public void abarajar() {
-		ArrayList<Carta> aux = new ArrayList<Carta>();
-		
+		Collections.shuffle(cartas);
+	}
+	
+	public boolean chequearCarta(Carta c) {
+		return c.mismoTipo(cartas.get(0));
+	}
+	
+	public Carta darCarta() {
+		return cartas.get(0);
+	}
+	public int cantCartas() {
+		return cartas.size();
 	}
 }
