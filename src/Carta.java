@@ -58,6 +58,7 @@ public class Carta {
 		int random = (int) Math.random()*atributos.size();
 		return atributos.get(random);
 	}
+	
 }
 
 	
