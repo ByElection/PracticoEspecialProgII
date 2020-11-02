@@ -54,9 +54,9 @@ public class Carta {
 		}
 	}
 	
-	public AtributoDinamico getAtributo(){
-		int random = (int) Math.random()*atributos.size();
-		return atributos.get(random);
+	public ArrayList<AtributoDinamico> getAtributos(){
+		ArrayList<AtributoDinamico> aux = new ArrayList<AtributoDinamico>(atributos);
+		return aux;
 	}
 	
 }
