@@ -8,4 +8,8 @@ public abstract class ModoDeJuego {
 	public String getAtributoSeleccionado() {
 		return atributoseleccionado;
 	}
+	@Override
+	public String toString() {
+		return " selecciona competir por el atributo "+ atributoseleccionado +".\n";
+	}
 }

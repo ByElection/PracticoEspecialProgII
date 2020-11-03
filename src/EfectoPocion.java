@@ -17,8 +17,8 @@ public abstract class EfectoPocion {
 		return valor;
 	}
 	
-	public String toString(AtributoDinamico atributo) {
-		return ", se aplicó pocion "+nombre+" valor resultante "+aplicarEfecto(atributo);
+	public String toString() {
+		return ", se aplicó pocion "+this.getNombre()+" valor resultante: ";
 	}
 	
 	public abstract int aplicarEfecto(AtributoDinamico atributo);

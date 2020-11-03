@@ -30,9 +30,7 @@ public class Jugador {
 	}
 	
 	public Carta darCarta() {
-		Carta c = cartas.darCarta();
-		this.removeCarta();
-		return c;
+		return cartas.darCarta();
 	}
 	
 	public void seleccionarAtributo() {
@@ -60,6 +58,15 @@ public class Jugador {
 			}
 			ultimaestrategia=estrategia;
 		}
+	}
+	
+	public ModoDeJuego getEstrategia() {
+		return estrategia;
+	}
+	
+	@Override
+	public String toString() {
+		return "la carta de "+this.getNombre()+" es "+this.darCarta().toString();
 	}
 	
 }

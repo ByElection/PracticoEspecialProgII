@@ -33,6 +33,6 @@ public class AtributoDinamico {
 	
 	@Override
     public String toString() {
-        return "("+this.getNombreAtributo()+":"+this.getValorAtributo()+")";
+        return this.getNombreAtributo()+":"+this.getValorAtributo();
     }
 }

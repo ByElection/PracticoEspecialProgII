@@ -68,6 +68,10 @@ public class Carta {
 		ArrayList<AtributoDinamico> aux = new ArrayList<AtributoDinamico>(atributos);
 		return aux;
 	}
+	@Override
+	public String toString() {
+		return this.getNombre()+" con ";
+	}
 	
 }
 
