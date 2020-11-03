@@ -4,6 +4,7 @@ public class Carta {
 	
 	private String nombre;
 	private ArrayList<AtributoDinamico> atributos;
+	private Pocion pocion;
 	
 	public Carta(String nombre) {
 		this.nombre = nombre;
@@ -12,6 +13,15 @@ public class Carta {
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public boolean addPocion(Pocion pocion) {
+		if (this.pocion==null) {
+			this.pocion=pocion;
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public void addAtributo(String nombre, int valor) {

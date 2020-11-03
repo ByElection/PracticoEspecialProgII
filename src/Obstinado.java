@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Obstinado extends ModoDeJuego {
 	
 	@Override
-	public void selccionarAtributo(Carta c) {
-		if (atributoseleccionado=="") {
+	public void seleccionarAtributo(Carta c) {
+		if (atributoseleccionado==null) {
 			ArrayList<AtributoDinamico> atributos= c.getAtributos();
 			System.out.println("seleccione el atributo para competir: ");
 			for (int i = 0; i < atributos.size(); i++) {
@@ -13,7 +13,6 @@ public class Obstinado extends ModoDeJuego {
 			}
 			Scanner scan = new Scanner(System.in);
 			int elegido = scan.nextInt();
-			scan.close();
 			atributoseleccionado = atributos.get(elegido-1).getNombreAtributo();
 		}
 	}

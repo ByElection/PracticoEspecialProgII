@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Cocktail implements Pocion,Cloneable {
+public class Cocktail implements Pocion {
 	ArrayList<Pocion> componentes;
 	
 	public Cocktail() {
@@ -16,10 +16,5 @@ public class Cocktail implements Pocion,Cloneable {
 		for (Pocion componente : componentes) {
 			componente.aplicarEfecto(atributo);;
 		}
-	}
-	
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
 	}
 }

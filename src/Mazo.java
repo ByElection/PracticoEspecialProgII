@@ -57,6 +57,10 @@ public class Mazo {
 		}
 	}
 	
+	public boolean addPocion(Pocion pocion, int n) {
+		return cartas.get(n).addPocion(pocion);
+	}
+	
 	public void abarajar() {
 		Collections.shuffle(cartas);
 	}

@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Jugador {
 	
 	private String nombre;
 	private Mazo cartas;
-	private ArrayList<Pocion> pociones;
 	private ModoDeJuego estrategia;
+	private int ultimaestrategia;
 	
 	
 	public Jugador(String nombre) {
@@ -13,17 +13,52 @@ public class Jugador {
 		this.cartas = new Mazo();
 	}
 	
-	public void addPocion(Pocion pocion) {
-		pociones.add(pocion);
+	public void removeCarta() {
+		cartas.removeCarta();
 	}
 	
-	public void cambiarestrategia(int estrategia) {
-		if (estrategia==2) {
-			this.estrategia = new Ambicioso();
-		}else if (estrategia==3) {
-			this.estrategia = new Obstinado();
-		}else {
-			this.estrategia = new Timbero();
+	public void addCarta(Carta c) {
+		cartas.addCarta(c);
+	}
+	
+	public int cantCartas() {
+		return cartas.cantCartas();
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public Carta darCarta() {
+		Carta c = cartas.darCarta();
+		this.removeCarta();
+		return c;
+	}
+	
+	public void seleccionarAtributo() {
+		estrategia.seleccionarAtributo(cartas.darCarta());
+	}
+	
+	public String getAtributoSeleccionado() {
+		return estrategia.getAtributoSeleccionado();
+	}
+	
+	public void cambiarEstrategia() {
+		System.out.println(this.getNombre()+" elija su estrategia:");
+		System.out.println("1. Timbero");
+		System.out.println("2. Ambicioso");
+		System.out.println("3. Obstinado");
+		Scanner scan = new Scanner(System.in);
+		int estrategia = scan.nextInt();
+		if (estrategia!=ultimaestrategia) {
+			if (estrategia==2) {
+				this.estrategia = new Ambicioso();
+			}else if (estrategia==3) {
+				this.estrategia = new Obstinado();
+			}else {
+				this.estrategia = new Timbero();
+			}
+			ultimaestrategia=estrategia;
 		}
 	}
 	
