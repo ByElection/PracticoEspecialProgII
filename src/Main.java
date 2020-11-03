@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -65,9 +64,11 @@ public class Main {
 		pociones.add(cocktail);
 		
 		//REPARTE POCIONES EN LAS CARTAS
-		Collections.shuffle(pociones);
 		for (Pocion pocion : pociones) {
-			while (!mazo.addPocion(pocion, (int)(Math.random() * mazo.cantCartas()))) {}
+			int cont=0;
+			while (!mazo.addPocion(pocion, (int)(Math.random() * mazo.cantCartas()))&&(cont<mazo.cantCartas()*pociones.size())) {
+				cont++;
+			}
 		}
 		
 		//REPARTIR CARTAS

@@ -9,6 +9,7 @@ public class Carta {
 	public Carta(String nombre) {
 		this.nombre = nombre;
 		this.atributos = new ArrayList<>();
+		pocion=null;
 	}
 	
 	public String getNombre() {

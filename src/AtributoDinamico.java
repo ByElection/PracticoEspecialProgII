@@ -31,6 +31,7 @@ public class AtributoDinamico implements Cloneable{
 	        }
 	 }
 	
+	
 	@Override
     public String toString() {
         return this.getNombreAtributo()+":"+this.getValorAtributo();
