@@ -1,5 +1,5 @@
 
-public class AtributoDinamico {
+public class AtributoDinamico implements Cloneable{
 	
 	private String nombre;
 	private int valor;

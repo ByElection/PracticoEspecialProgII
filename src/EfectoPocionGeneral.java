@@ -3,17 +3,20 @@ public class EfectoPocionGeneral extends EfectoPocion{
 	
 	private boolean esporcentaje;
 	
-	public EfectoPocionGeneral(String nombre, int valor, boolean esporcentaje) {
-		super(nombre, valor);
+	public EfectoPocionGeneral(int valor, boolean esporcentaje) {
+		super(valor);
 		this.esporcentaje=esporcentaje;
 	} 
 	
-	public int aplicarEfecto(AtributoDinamico atributo) {
+	public AtributoDinamico aplicarEfecto(AtributoDinamico atributo) {
+		int valorretorno;
 		if (esporcentaje) {
-			return atributo.getValorAtributo()+atributo.getValorAtributo()*valor/100;
+			valorretorno=atributo.getValorAtributo()+atributo.getValorAtributo()*valor/100;
 		}else {
-			return valor;
+			valorretorno=valor;
 		}
+		atributo.setValor(valorretorno);
+		return atributo;
 	}
 
 }

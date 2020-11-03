@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
-public class Cocktail implements Pocion {
+public class Cocktail extends Pocion {
 	ArrayList<Pocion> componentes;
 	
 	public Cocktail() {
+		super("Cocktail");
 		componentes = new ArrayList<Pocion>();
 	}
 	
@@ -12,9 +13,10 @@ public class Cocktail implements Pocion {
 	}
 	
 	@Override
-	public void aplicarEfecto(AtributoDinamico atributo) {
+	public AtributoDinamico aplicarEfecto(AtributoDinamico atributo) {
 		for (Pocion componente : componentes) {
-			componente.aplicarEfecto(atributo);;
+			componente.aplicarEfecto(atributo);
 		}
+		return atributo;
 	}
 }

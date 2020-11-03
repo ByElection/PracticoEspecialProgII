@@ -1,18 +1,21 @@
 
-public class PocionSimple implements Pocion {
+public class PocionSimple extends Pocion {
 	EfectoPocion efecto;
 	
 	public PocionSimple(String nombre, int valor, boolean porcentaje) {
-		efecto = new EfectoPocionGeneral(nombre, valor, porcentaje);
+		super(nombre);
+		efecto = new EfectoPocionGeneral(valor, porcentaje);
 	}
 	
 	public PocionSimple(String nombre, int valor, String atributo) {
-		efecto = new EfectoPocionSelectiva(nombre, valor, atributo);
+		super(nombre);
+		efecto = new EfectoPocionSelectiva(valor, atributo);
 	}
 
 	@Override
-	public void aplicarEfecto(AtributoDinamico atributo) {
+	public AtributoDinamico aplicarEfecto(AtributoDinamico atributo) {
 		efecto.aplicarEfecto(atributo);
+		return atributo;
 	}
 
 }

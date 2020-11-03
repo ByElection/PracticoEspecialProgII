@@ -66,7 +66,7 @@ public class Jugador {
 	
 	@Override
 	public String toString() {
-		return "la carta de "+this.getNombre()+" es "+this.darCarta().toString();
+		return "La carta de "+this.getNombre()+" es "+this.darCarta().toString();
 	}
 	
 }

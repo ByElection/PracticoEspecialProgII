@@ -24,6 +24,13 @@ public class Carta {
 		}
 	}
 	
+	public AtributoDinamico usarPocion(AtributoDinamico a) {
+		if (pocion!=null) {
+			pocion.aplicarEfecto(a);
+		}
+		return a;
+	}
+	
 	public void addAtributo(String nombre, int valor) {
 		if (!tieneAtributo(nombre))
 			this.atributos.add(new AtributoDinamico(nombre,valor));
@@ -31,8 +38,9 @@ public class Carta {
 	
 	public AtributoDinamico getAtributo(String nombre) {
 		for(int i=0; i<atributos.size(); i++) {
-			if (atributos.get(i).getNombreAtributo().equals(nombre))
-				return atributos.get(i);
+			if (atributos.get(i).getNombreAtributo().equals(nombre)) {
+				return new AtributoDinamico(atributos.get(i).getNombreAtributo(),atributos.get(i).getValorAtributo());
+			}
 		}
 		return null;
 	}
@@ -68,6 +76,14 @@ public class Carta {
 		ArrayList<AtributoDinamico> aux = new ArrayList<AtributoDinamico>(atributos);
 		return aux;
 	}
+	public String toStringPocion() {
+		if (pocion!=null) {
+			return pocion.toString();
+		}else {
+			return "";
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return this.getNombre()+" con ";
